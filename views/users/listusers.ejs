@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<div class="container">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Email</th>
+        <th scope="col" colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tbody>
+            <%
+            var i=0;
+            userData.forEach(function(result,index){
+              i=i+1;
+            %>
+            <tr>
+              <td><%= i %></td>
+           <td><%= result.firstname %></td>
+           <td><%= result.lastname %></td>
+           <td><%= result.email %></td>
+          
+        
+         
+           <td><a href="/users/update/<%= result._id%>"><button class="btn btn-success">Edit</button></a></td>
+           <td><a href="/users/delete/<%= result._id%>"><button class="btn btn-danger" onclick="return confirm('Are you sure')" >Delete</button></a></td>
+          </tr>
+      <%
+      })
+      %>
+    </tbody>
+  </table>
+  
+</div>
